@@ -1,25 +1,25 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import Login from '../views/Login.vue';
-import Register from '../views/Register.vue';
-import PasswordReset from '../views/PasswordReset.vue';
-import Profile from '../views/Profile.vue';
-import BlogEditor from '../views/BlogEditor.vue';
-import BlogDetail from '../views/BlogDetail.vue';
-import Messages from '../views/Messages.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../views/Home.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
+import PasswordReset from '../views/PasswordReset.vue'
+import BlogDetail from '../views/BlogDetail.vue'
+import BlogEditor from '../views/BlogEditor.vue'
+import Profile from '../views/Profile.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
-  { path: '/login', component: Login },
-  { path: '/register', component: Register },
-  { path: '/password-reset', component: PasswordReset },
-  { path: '/profile', component: Profile },
-  { path: '/editor', component: BlogEditor },
-  { path: '/blogs/:id', component: BlogDetail, props: true },
-  { path: '/messages', component: Messages },
-];
+  { path: '/login', name: 'Login', component: Login },
+  { path: '/register', name: 'Register', component: Register },
+  { path: '/password-reset', name: 'PasswordReset', component: PasswordReset },
+  { path: '/blogs/:id', name: 'BlogDetail', component: BlogDetail },
+  { path: '/editor', name: 'BlogEditor', component: BlogEditor },
+  { path: '/profile', name: 'Profile', component: Profile },
+]
 
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
+
+export default router
