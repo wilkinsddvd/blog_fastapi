@@ -1,0 +1,20 @@
+:root {
+  --klein-blue: #002fa7;
+  --klein-blue-dark: #001a70;
+  --bg-light: #f6f9fa;
+  --border-radius: 12px;
+}
+body {
+  background-color: var(--bg-light);
+}
+h2 { color: var(--klein-blue);}
+button, .btn-primary {
+  background: var(--klein-blue);
+  color: #fff;
+  border-radius: var(--border-radius);
+  border: none;
+}
+input, textarea {
+  border: 1px solid var(--klein-blue);
+  border-radius: var(--border-radius);
+}

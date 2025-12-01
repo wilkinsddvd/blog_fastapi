@@ -1,0 +1,50 @@
+# Test server root
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+# Register a user
+POST http://127.0.0.1:8000/auth/register
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "email": "alice@example.com",
+  "phone": "+15550001111",
+  "password": "password123"
+}
+
+###
+
+# Login
+POST http://127.0.0.1:8000/auth/login
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "password": "password123"
+}
+
+###
+
+# Use token returned above for protected endpoints, e.g.
+GET http://127.0.0.1:8000/users/me
+Authorization: Bearer <ACCESS_TOKEN>
+
+###
+
+# Create a blog (multipart for optional cover image)
+POST http://127.0.0.1:8000/blogs/
+Authorization: Bearer <ACCESS_TOKEN>
+Content-Type: multipart/form-data
+
+--boundary
+Content-Disposition: form-data; name="title"
+
+My first blog
+--boundary
+Content-Disposition: form-data; name="content"
+
+Hello from my new blog.
+--boundary--
